@@ -1,0 +1,77 @@
+@import "partials/_normalize.scss";
+@import "partials/_header.scss";
+@import "partials/_footer.scss";
+@import "partials/_shareLinks.scss";
+
+html {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    background: #000;
+}
+
+.warning {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    background: #000;
+    line-height: 100%;
+    color: white;
+}
+
+.image-holder {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    overflow: hidden;
+    text-align: center;
+    img {
+        max-width: 100%;
+        max-height: 100%;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        overflow: auto;
+        position: fixed;
+        right: 0;
+        top: 0;
+    }
+}
+
+.share-modal {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 30px;
+    width: 500px;
+    margin: auto;
+    max-width: 80%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    border-radius: 4px;
+    background: white;
+    z-index: 600;
+    height: auto;
+    text-align: center;
+    display: none;
+    color: #666;
+    padding-bottom: 20px;
+}
+
+.overlay {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.2;
+    background: #000;
+    z-index: 500;
+    top: 0;
+}
+
+@media all and (orientation:portrait) {
+    .warning {
+        display: block;
+    }
+}

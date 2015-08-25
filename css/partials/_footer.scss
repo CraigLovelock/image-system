@@ -1,0 +1,51 @@
+footer {
+    width: 100%;
+    height: 80px;
+    position: fixed;
+    bottom:0;
+}
+
+.lower-buttons {
+    position: fixed;
+    bottom: 10px;
+    width: 140px;
+    left: 50%;
+    margin-left: -70px;
+    z-index: 150;
+}
+
+.vote-up, .share {
+    width: 60px;
+    opacity: 0.6;
+    float: left;
+    transition: text-shadow 0.5s ease;
+    transition: opacity 0.5s ease;
+    text-align: center;
+    i {
+        border: 1px solid white;
+        border-radius: 50%;
+        height: 58px;
+        width: 58px;
+        font-size: 20px;
+        line-height: 60px;
+        margin-bottom: 10px;
+    }
+    span {
+        text-align: center;
+        font-size: 14px;
+    }
+    &:hover {
+        opacity: 1;
+        cursor: pointer;
+        text-shadow: 0px 0px 6px #666;
+    }
+}
+
+.vote-up {
+    color: white;
+}
+
+.share {
+    color: white;
+    margin-left: 20px;
+}

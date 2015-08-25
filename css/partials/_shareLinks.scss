@@ -1,0 +1,43 @@
+@mixin darken-background($colour) {
+ 	background: darken($colour, 6%);
+}
+
+.share-links {
+	a {
+		border-radius: 8px;
+		width: 80%;
+		color: white;
+		padding: 10px;
+		padding-top: 12px;
+		text-decoration: none;
+		display: block;
+		margin: auto;
+		margin-bottom: 20px;
+	}
+	.facebook {
+		background: #3b5998;
+		&:hover {
+			@include darken-background(#3b5998);
+		}
+	}
+	.twitter {
+		background: #55acee;
+		&:hover {
+			@include darken-background(#55acee);
+		}
+	}
+	.direct-link {
+		display: block;
+		width: 80%;
+		margin: auto;
+		padding: 8px;
+		text-align: center;
+		border-radius: 8px;
+		border: 1px solid #ccc;
+		margin-top: 10px;
+		background-color: #efefef;
+		&:focus {
+			background-color: white;
+		}
+	}
+}
