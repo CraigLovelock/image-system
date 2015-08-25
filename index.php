@@ -6,31 +6,39 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>StanceHour</title>
+    <title>Dose Of Stance</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
 <body>
 
+    <?php
+    require ('php/singleimageload.php');
+    ?>
+
     <header>
         <div class="header-container">
-            <a href="/" class="page-refresh">Click To <i class="fa fa-refresh"></i> Load New</a>
+            <?php if ($singleImage) { ?>
+                <a href="/" class="return-home">Dose Of Stance</a>
+            <? } else { ?>
+                <a href="/" class="page-refresh">Click To <i class="fa fa-refresh"></i> Load New</a>
+            <? } ?>
         </div>
     </header>
 
     <div class="image-holder">
-        <img class="main-image" src="" alt="" data-imageid="">
+        <img class="main-image" src="/images/cars/<?= $return['image_name']; ?>.jpg" alt="" data-imageid="<?= $return['image_id']; ?>">
     </div>
 
     <footer>
         <div class="lower-buttons">
-            <div class="vote-up">
+            <div class="vote-up vote-up-enabled">
                 <i class="fa fa-arrow-up"></i>
-                <span>UPVOTE</span>
+                <span class="upvote-text">UPVOTE</span>
             </div>
             <div class="share">
                 <i class="fa fa-share-alt"></i>
@@ -43,17 +51,17 @@
         <h3>SHARE THIS IMAGE</h3>
 
         <div class="share-links">
-            <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fparse.com" target="_blank">
+            <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdoseofstance.com/image/<?= $return['image_id'] ?>" target="_blank">
                 Share On Facebook
             </a>
 
-            <a class="twitter" href="https://twitter.com/intent/tweet?url=URL&text=TEXT&via=YOURTWITTERACCOUNTNAME" target="_blank">
+            <!--<a class="twitter" href="https://twitter.com/intent/tweet?url=URL&text=TEXT&via=YOURTWITTERACCOUNTNAME" target="_blank">
                 Share On Twitter
-            </a>
+            </a>-->
 
             Direct Link:
 
-            <input class="direct-link" type="text" value="http://www.thiswebsite.com/image/2525">
+            <input class="direct-link" type="text" value="http://www.doseofstance.com/image/<?= $return['image_id'] ?>">
         </div>
     </div>
 
@@ -65,6 +73,6 @@
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
-    <script src="js/app.js"></script>
+    <script src="/js/app.js"></script>
 </body>
 </html>

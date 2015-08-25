@@ -390,7 +390,7 @@ header {
       text-decoration: none; }
       header .header-container .page-header:hover {
         opacity: 1; }
-    header .header-container .page-refresh {
+    header .header-container .page-refresh, header .header-container .return-home {
       color: #fff;
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       line-height: 80px;
@@ -398,7 +398,7 @@ header {
       opacity: 0.6;
       text-decoration: none;
       transition: opacity 0.5s ease; }
-      header .header-container .page-refresh:hover {
+      header .header-container .page-refresh:hover, header .header-container .return-home:hover {
         opacity: 1; }
 
 footer {
@@ -421,7 +421,8 @@ footer {
   float: left;
   transition: text-shadow 0.5s ease;
   transition: opacity 0.5s ease;
-  text-align: center; }
+  text-align: center;
+  color: white; }
   .vote-up i, .share i {
     border: 1px solid white;
     border-radius: 50%;
@@ -433,16 +434,20 @@ footer {
   .vote-up span, .share span {
     text-align: center;
     font-size: 14px; }
-  .vote-up:hover, .share:hover {
-    opacity: 1;
-    cursor: pointer;
-    text-shadow: 0px 0px 6px #666; }
 
-.vote-up {
-  color: white; }
+.vote-up-enabled:hover, .share:hover {
+  opacity: 1;
+  cursor: pointer;
+  text-shadow: 0px 0px 6px #666; }
+
+.vote-up-disabled {
+  opacity: 1;
+  color: #2ecc71;
+  text-shadow: 0px 0px 6px #666; }
+  .vote-up-disabled i {
+    border-color: #2ecc71; }
 
 .share {
-  color: white;
   margin-left: 20px; }
 
 .share-links a {

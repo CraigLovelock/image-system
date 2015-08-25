@@ -21,6 +21,7 @@ footer {
     transition: text-shadow 0.5s ease;
     transition: opacity 0.5s ease;
     text-align: center;
+    color: white;
     i {
         border: 1px solid white;
         border-radius: 50%;
@@ -34,6 +35,9 @@ footer {
         text-align: center;
         font-size: 14px;
     }
+}
+
+.vote-up-enabled, .share {
     &:hover {
         opacity: 1;
         cursor: pointer;
@@ -41,11 +45,15 @@ footer {
     }
 }
 
-.vote-up {
-    color: white;
+.vote-up-disabled {
+    opacity: 1;
+    color: #2ecc71;
+    text-shadow: 0px 0px 6px #666;
+    i {
+        border-color: #2ecc71;
+    }
 }
 
 .share {
-    color: white;
     margin-left: 20px;
 }

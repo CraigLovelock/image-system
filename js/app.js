@@ -1,9 +1,9 @@
 $("document").ready(function(){
 
     // first page load, if no image currently set then fetch an image using same method for ajax call
-    if ( ! $('.main-image').attr("src") ) {
+    /*if ( ! $('.main-image').attr("src") ) {
         loadImageAjax();
-    }
+    }*/
 
     // on page refesh button click, perform ajax call
     jQuery(document.body).on('click', '.page-refresh', function(e){
@@ -12,7 +12,7 @@ $("document").ready(function(){
     });
 
     // upvote the image
-    jQuery(document.body).on('click', '.vote-up', function(e){
+    jQuery(document.body).on('click', '.vote-up-enabled', function(e){
         e.preventDefault();
         upvoteAjax();
     });
@@ -28,7 +28,7 @@ $("document").ready(function(){
     function loadImageAjax()
     {
         $.ajax({
-            url: 'php/loadimage.php',
+            url: '/php/loadimage.php',
             dataType : 'json',
             beforeSend:function(){
                 // add spinner for loading
@@ -40,6 +40,9 @@ $("document").ready(function(){
                 // change the image attributes
                 $('.main-image').attr("src", "/images/cars/"+data.image_name+".jpg");
                 $('.main-image').attr("data-imageid", data.rowId);
+                $('.direct-link').attr('value', "http://www.doseofstance.com/image/"+data.rowId);
+                $('.facebook').attr('href', "https://twitter.com/intent/tweet?url=URL&");
+                modifyUpvote('enable');
             }
         });
     };
@@ -50,7 +53,7 @@ $("document").ready(function(){
         var imageid = $(".main-image").attr("data-imageid");
         $.ajax({
             type: 'POST',
-            url: 'php/upvoteimage.php?imageid='+imageid,
+            url: '/php/upvoteimage.php?imageid='+imageid,
             dataType : 'json',
             beforeSend:function(){
                 // add spinner for loading
@@ -59,14 +62,29 @@ $("document").ready(function(){
             success:function(data){
                 // done, remove spinner
                 modifySpinner("fa-arrow-up", ".vote-up i");
-
+                modifyUpvote('disable');
             }
         });
     };
 
+    function modifyUpvote(status)
+    {
+        if (status === 'enable') {
+            $(".vote-up i").removeClass("fa-check")
+            .addClass("fa-arrow-up");
+            $(".vote-up").removeClass("vote-up-disabled").addClass("vote-up-enabled");
+            $(".upvote-text").html('UPVOTE');
+        } else {
+            $(".vote-up i").removeClass("fa-arrow-up")
+            .addClass("fa-check");
+            $(".vote-up").removeClass("vote-up-enabled").addClass("vote-up-disabled");
+            $(".upvote-text").html('VOTED');
+        }
+    }
+
     function modifySpinner(currentIcon, selector, spinType)
     {
-        var spinType = spinType || "remove" 
+        var spinType = spinType || "remove"
 
         if (spinType === 'add') {
             $(selector).removeClass(currentIcon);
