@@ -30,21 +30,23 @@ ini_set( "display_errors", 1 );
 	require 'php/conn.php';
 	$stmt = $conn->prepare(
 		'SELECT *
-		FROM images'
+		FROM images
+		LIMIT 10'
 		);
 	$stmt->execute();
 	$results = $stmt->fetchAll();
 	?>
 
 	<?php foreach ($results as $result) { ?>
-		<div class="home-single-image">
-			<img src="images/cars/<?= $result['image_name'] ?>.jpg"/>
-			<div class="single-car-overlay">
-				<div class="ghost-button">
-					View Image
-				</div>
-			</div>
+	<div class="home-single-image">
+		<img src="images/cars/<?= $result['image_name'] ?>.jpg"/>
+		<div class="single-car-overlay">
+		<h1>Rank: <?= $result['id'] ?></h1>
 		</div>
+		<a href="/image/<?= $result['id'] ?>" class="ghost-button">
+			View Image
+		</a>
+	</div>
 	<?php	} ?>
 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
