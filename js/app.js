@@ -24,6 +24,12 @@ $("document").ready(function(){
         $(".share-modal").fadeIn();
     });
 
+    $('body').keyup(function(e){
+       if(e.keyCode == 32){
+          loadImageAjax();
+       }
+    });
+
     // needs support for passing in a variable of image id for single
     function loadImageAjax()
     {
@@ -35,6 +41,15 @@ $("document").ready(function(){
                 $('.page-refresh i').addClass('fa-spin');
             },
             success:function(data){
+                if (data.error && data.error === 100) {
+                    window.location.replace("http://stackoverflow.com");
+                }
+
+                if (data.already_voted) {
+                    modifyUpvote('disable');
+                } else {
+                    modifyUpvote('enable');
+                }
                 // done, remove spinner
                 $('.page-refresh i').removeClass('fa-spin');
                 // change the image attributes
@@ -42,7 +57,6 @@ $("document").ready(function(){
                 $('.main-image').attr("data-imageid", data.rowId);
                 $('.direct-link').attr('value', "http://www.doseofstance.com/image/"+data.rowId);
                 $('.facebook').attr('href', "https://twitter.com/intent/tweet?url=URL&");
-                modifyUpvote('enable');
             }
         });
     };
@@ -60,9 +74,14 @@ $("document").ready(function(){
                 modifySpinner("fa-arrow-up", ".vote-up i", 'add');
             },
             success:function(data){
-                // done, remove spinner
-                modifySpinner("fa-arrow-up", ".vote-up i");
-                modifyUpvote('disable');
+                if (data.success) {
+                    // done, remove spinner
+                    modifyUpvote('disable');
+                    modifySpinner("fa-arrow-up", ".vote-up i");
+                } else {
+                    modifyUpvote('error');
+                    modifySpinner("fa-ban", ".vote-up i");
+                }
             }
         });
     };
@@ -74,7 +93,12 @@ $("document").ready(function(){
             .addClass("fa-arrow-up");
             $(".vote-up").removeClass("vote-up-disabled").addClass("vote-up-enabled");
             $(".upvote-text").html('UPVOTE');
-        } else {
+        } else if (status === 'error') {
+            $(".vote-up i").removeClass("fa-arrow-up")
+            .addClass("fa-ban");
+            $(".vote-up").removeClass("vote-up-enabled").addClass("vote-up-error");
+            $(".upvote-text").html('ERROR');
+        } else if (status === 'disable') {
             $(".vote-up i").removeClass("fa-arrow-up")
             .addClass("fa-check");
             $(".vote-up").removeClass("vote-up-enabled").addClass("vote-up-disabled");

@@ -54,6 +54,15 @@ footer {
     }
 }
 
+.vote-up-error {
+    opacity: 1;
+    color: #e74c3c;
+    text-shadow: 0px 0px 6px #666;
+    i {
+        border-color: #e74c3c;
+    }
+}
+
 .share {
     margin-left: 20px;
 }

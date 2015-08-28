@@ -447,6 +447,13 @@ footer {
   .vote-up-disabled i {
     border-color: #2ecc71; }
 
+.vote-up-error {
+  opacity: 1;
+  color: #e74c3c;
+  text-shadow: 0px 0px 6px #666; }
+  .vote-up-error i {
+    border-color: #e74c3c; }
+
 .share {
   margin-left: 20px; }
 
@@ -486,6 +493,13 @@ html {
   padding: 0;
   margin: 0;
   background: #000; }
+
+.upload-images {
+  background-color: white;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 50px;
+  padding: 20px; }
 
 .warning {
   display: none;
@@ -545,3 +559,45 @@ html {
 @media all and (orientation: portrait) {
   .warning {
     display: block; } }
+.home-single-image {
+  width: 100%;
+  background-color: white;
+  height: 300px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer; }
+  .home-single-image img {
+    width: 100%;
+    position: absolute;
+    top: -100%;
+    left: 0;
+    right: 0;
+    bottom: -100%;
+    margin: auto;
+    transform: scale(1);
+    transition: all 1s ease; }
+  .home-single-image .single-car-overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #000;
+    opacity: 0;
+    transition: opacity 1s ease; }
+  .home-single-image:hover .single-car-overlay {
+    opacity: 0.4; }
+  .home-single-image:hover img {
+    transform: scale(1.1); }
+
+.ghost-button {
+  width: 100px;
+  text-align: center;
+  position: absolute;
+  top: -100%;
+  left: 0;
+  right: 0;
+  bottom: -100%;
+  padding: 20px;
+  color: white;
+  border: 2px solid white;
+  display: none; }
