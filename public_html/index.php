@@ -21,18 +21,10 @@
 <body>
 
     <?php
-    require ('../php/singleimageload.php');
+    require ('./php/singleimageload.php');
     ?>
 
-    <header>
-        <div class="header-container">
-            <?php if ($singleImage) { ?>
-                <a href="/" class="return-home">Dose Of Stance</a>
-            <? } else { ?>
-                <a href="/" class="return-home">Dose Of Stance</a>
-            <? } ?>
-        </div>
-    </header>
+    <?php include ('includes/_header.php'); ?>
 
     <div class="image-holder">
         <img class="main-image" src="/assets/images/cars/<?= $return['image_name']; ?>.jpg" alt="" data-imageid="<?= $return['image_id']; ?>">
@@ -70,7 +62,10 @@
     </div>
 
     <div class="warning">
-        <span>Turn Device Round</span>
+        <span>
+            <i class="fa fa-mobile fa-spin"></i> <br>
+            Turn Device Landscape
+        </span>
     </div>
 
     <div class="overlay"></div>

@@ -26,7 +26,20 @@ html {
     opacity: 0.8;
     background: #000;
     line-height: 100%;
-    color: white;
+    span {
+        width: 220px;
+        margin-left: 50%;
+        left: -100px;
+        position: absolute;
+        color: white;
+        font-size: 20px;
+        text-align: center;
+        top: 40%;
+        i {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+    }
 }
 
 .image-holder {
@@ -76,14 +89,6 @@ html {
     background: #000;
     z-index: 500;
     top: 0;
-}
-
-@media only screen
-  and (min-device-width: 498px)
-  and (orientation:portrait) {
-    .warning {
-        display: block;
-    }
 }
 
 .home-single-image {
@@ -140,5 +145,14 @@ html {
     &:hover {
         background-color: white;
         color: black;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .warning {
+        display: block;
+    }
+    .home-single-image {
+        height: 200px;
     }
 }

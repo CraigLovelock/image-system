@@ -20,11 +20,7 @@ ini_set( "display_errors", 1 );
 </head>
 <body>
 
-	<header>
-		<div class="header-container">
-			<a href="/" class="return-home">Dose Of Stance | Top 10</a>
-		</div>
-	</header>
+	<?php include ('includes/_header.php'); ?>
 
 	<?php
 	require 'php/conn.php';
