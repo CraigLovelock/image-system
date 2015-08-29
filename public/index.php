@@ -15,13 +15,13 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
 <body>
 
     <?php
-    require ('php/singleimageload.php');
+    require ('../php/singleimageload.php');
     ?>
 
     <header>
@@ -29,13 +29,13 @@
             <?php if ($singleImage) { ?>
                 <a href="/" class="return-home">Dose Of Stance</a>
             <? } else { ?>
-                <a href="/" class="page-refresh">Click To <i class="fa fa-refresh"></i> Load New</a>
+                <a href="/" class="return-home">Dose Of Stance</a>
             <? } ?>
         </div>
     </header>
 
     <div class="image-holder">
-        <img class="main-image" src="/images/cars/<?= $return['image_name']; ?>.jpg" alt="" data-imageid="<?= $return['image_id']; ?>">
+        <img class="main-image" src="/assets/images/cars/<?= $return['image_name']; ?>.jpg" alt="" data-imageid="<?= $return['image_id']; ?>">
     </div>
 
     <footer>
@@ -43,6 +43,11 @@
             <div class="vote-up vote-up-enabled">
                 <i class="fa fa-arrow-up"></i>
                 <span class="upvote-text">UPVOTE</span>
+            </div>
+
+            <div class="load-new-image">
+                <i class="fa fa-refresh"></i>
+                <span>CHANGE IMAGE</span>
             </div>
             <div class="share">
                 <i class="fa fa-share-alt"></i>
@@ -59,12 +64,7 @@
                 Share On Facebook
             </a>
 
-            <!--<a class="twitter" href="https://twitter.com/intent/tweet?url=URL&text=TEXT&via=YOURTWITTERACCOUNTNAME" target="_blank">
-                Share On Twitter
-            </a>-->
-
             Direct Link:
-
             <input class="direct-link" type="text" value="http://www.doseofstance.com/image/<?= $return['image_id'] ?>">
         </div>
     </div>
@@ -77,6 +77,6 @@
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
-    <script src="/js/app.js"></script>
+    <script src="/assets/js/app.js"></script>
 </body>
 </html>

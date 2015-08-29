@@ -15,14 +15,14 @@ ini_set( "display_errors", 1 );
 	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
 	<link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-	<link rel="stylesheet" href="/css/main.css">
+	<link rel="stylesheet" href="/assets/css/main.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
 <body>
 
 	<header>
 		<div class="header-container">
-			<a href="/" class="return-home">Dose Of Stance</a>
+			<a href="/" class="return-home">Dose Of Stance | Top 10</a>
 		</div>
 	</header>
 
@@ -39,9 +39,8 @@ ini_set( "display_errors", 1 );
 
 	<?php foreach ($results as $result) { ?>
 	<div class="home-single-image">
-		<img src="images/cars/<?= $result['image_name'] ?>.jpg"/>
+		<img src="/assets/images/cars/<?= $result['image_name'] ?>.jpg"/>
 		<div class="single-car-overlay">
-		<h1>Rank: <?= $result['id'] ?></h1>
 		</div>
 		<a href="/image/<?= $result['id'] ?>" class="ghost-button">
 			View Image
@@ -51,6 +50,6 @@ ini_set( "display_errors", 1 );
 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
-	<script src="/js/app.js"></script>
+	<script src="/assets/js/app.js"></script>
 </body>
 </html>

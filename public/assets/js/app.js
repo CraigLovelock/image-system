@@ -6,7 +6,7 @@ $("document").ready(function(){
     }*/
 
     // on page refesh button click, perform ajax call
-    jQuery(document.body).on('click', '.page-refresh', function(e){
+    jQuery(document.body).on('click', '.page-refresh, .load-new-image', function(e){
         e.preventDefault();
         loadImageAjax();
     });
@@ -34,11 +34,11 @@ $("document").ready(function(){
     function loadImageAjax()
     {
         $.ajax({
-            url: '/php/loadimage.php',
+            url: "/php/loadimage.php",
             dataType : 'json',
             beforeSend:function(){
                 // add spinner for loading
-                $('.page-refresh i').addClass('fa-spin');
+                $('.load-new-image i').addClass('fa-spin');
             },
             success:function(data){
                 if (data.error && data.error === 100) {
@@ -51,9 +51,9 @@ $("document").ready(function(){
                     modifyUpvote('enable');
                 }
                 // done, remove spinner
-                $('.page-refresh i').removeClass('fa-spin');
+                $('.load-new-image i').removeClass('fa-spin');
                 // change the image attributes
-                $('.main-image').attr("src", "/images/cars/"+data.image_name+".jpg");
+                $('.main-image').attr("src", "/assets/images/cars/"+data.image_name+".jpg");
                 $('.main-image').attr("data-imageid", data.rowId);
                 $('.direct-link').attr('value', "http://www.doseofstance.com/image/"+data.rowId);
                 $('.facebook').attr('href', "https://twitter.com/intent/tweet?url=URL&");

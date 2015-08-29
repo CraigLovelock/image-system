@@ -937,3 +937,5 @@ FileETag None
 # </IfModule>
 
 RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+Deny from all
