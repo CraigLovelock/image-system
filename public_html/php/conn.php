@@ -6,17 +6,10 @@ ini_set( "display_errors", 1 );
 // all connection information for PDO
 $domain = $_SERVER['HTTP_HOST'];
 
-if ($domain == 'localhost') {
-	$host = '127.0.0.1';
-	$dbname = 'every_hour';
-	$username = 'root';
-	$password = 'root';
-} else {
 	$host = '127.0.0.1';
 	$dbname = 'doseofst_every_hour';
 	$username = 'doseofst_craig';
 	$password = 'wireless';
-}
 
 try {
 	$conn = new PDO(
