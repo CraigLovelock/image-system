@@ -11,7 +11,7 @@ if ($domain == 'localhost') {
 	$user = 'root';
 	$password = 'root';
 } else {
-	$dsn = 'mysql:dbname=doseofst_every_hour;host=95.142.152.194';
+	$dsn = 'mysql:dbname=doseofst_every_hour;host=10.169.0.48';
 	$user = 'doseofst_craig';
 	$password = 'wireless';
 }
