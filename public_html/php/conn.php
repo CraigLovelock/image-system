@@ -13,7 +13,7 @@ if ($domain == 'localhost') {
 	$password = 'root';
 } else {
 	$host = 'localhost';
-	$dbname = 'every_hour';
+	$dbname = 'doseofst_every_hour';
 	$username = 'doseofst_craig';
 	$password = 'wireless';
 }
