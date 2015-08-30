@@ -1,6 +1,15 @@
 <header>
     <div class="header-container">
         <a href="/" class="brand-section">Dose Of Stance</a>
+        <input type="checkbox" id="menu_collapse_icon" class="menu_collapse_icon">
+        <label for="menu_collapse_icon" class="menu_collapse_icon_label">
+            <span>Menu</span>
+            <div class="menu_bars">
+                <div class="menu_bar"></div>
+                <div class="menu_bar"></div>
+                <div class="menu_bar"></div>
+            </div>
+        </label>
         <nav class="main-nav">
             <ul>
                 <a href="/" class="<?php echo ($_SERVER['REQUEST_URI'] ==="/" ? 'active' : '') ?>">

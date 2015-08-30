@@ -1,9 +1,6 @@
 $("document").ready(function(){
 
-    // first page load, if no image currently set then fetch an image using same method for ajax call
-    /*if ( ! $('.main-image').attr("src") ) {
-        loadImageAjax();
-    }*/
+    FastClick.attach(document.body);
 
     // on page refesh button click, perform ajax call
     jQuery(document.body).on('click touchstart', '.page-refresh, .load-new-image', function(e){
@@ -42,7 +39,7 @@ $("document").ready(function(){
             },
             success:function(data){
                 if (data.error && data.error === 100) {
-                    window.location.replace("http://stackoverflow.com");
+                    window.location.replace("http://doseofstance.com/top");
                 }
 
                 if (data.already_voted) {
@@ -122,13 +119,6 @@ $("document").ready(function(){
     function showOverlay()
     {
         $(".overlay").fadeIn();
-    }
-
-    // encode url for sharing use
-    function encodeUrl() {
-        var obj = document.getElementById('dencoder');
-        var unencoded = obj.value;
-        obj.value = encodeURIComponent(unencoded).replace(/'/g,"%27").replace(/"/g,"%22");
     }
 
 });

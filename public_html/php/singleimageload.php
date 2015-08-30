@@ -42,7 +42,7 @@ function validateId($id)
 
 function redirect()
 {
-	echo '<META HTTP-EQUIV="Refresh" Content="0; URL=/top_voted">';
+	echo '<META HTTP-EQUIV="Refresh" Content="0; URL=/top">';
 	exit();
 }
 

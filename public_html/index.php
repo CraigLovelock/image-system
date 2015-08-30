@@ -70,8 +70,7 @@
 
     <div class="overlay"></div>
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
-    <script src="/assets/js/app.js"></script>
+    <?php include ("includes/_scripts.php") ?>
+
 </body>
 </html>
