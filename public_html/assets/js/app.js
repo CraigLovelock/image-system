@@ -6,19 +6,19 @@ $("document").ready(function(){
     }*/
 
     // on page refesh button click, perform ajax call
-    jQuery(document.body).on('click', '.page-refresh, .load-new-image', function(e){
+    jQuery(document.body).on('click touchstart', '.page-refresh, .load-new-image', function(e){
         e.preventDefault();
         loadImageAjax();
     });
 
     // upvote the image
-    jQuery(document.body).on('click', '.vote-up-enabled', function(e){
+    jQuery(document.body).on('click touchstart', '.vote-up-enabled', function(e){
         e.preventDefault();
         upvoteAjax();
     });
 
     // show the share modal
-    jQuery(document.body).on('click', '.share', function(e){
+    jQuery(document.body).on('click touchstart', '.share', function(e){
         e.preventDefault();
         showOverlay();
         $(".share-modal").fadeIn();
