@@ -12,7 +12,7 @@ if ($domain == 'localhost') {
 	$username = 'root';
 	$password = 'root';
 } else {
-	$host = '127.0.0.1';
+	$host = 'localhost';
 	$dbname = 'every_hour';
 	$username = 'doseofst_craig';
 	$password = 'wireless';
@@ -28,7 +28,7 @@ try {
 	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 } catch(PDOException $e) {
-	exit('There has been errors.');
+	echo 'ERROR: ' . $e->getMessage();
 }
 
 ?>
