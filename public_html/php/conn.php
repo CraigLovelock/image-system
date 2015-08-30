@@ -12,7 +12,7 @@ if ($domain == 'localhost') {
 	$username = 'root';
 	$password = 'root';
 } else {
-	$host = 'localhost';
+	$host = '127.0.0.1';
 	$dbname = 'doseofst_every_hour';
 	$username = 'doseofst_craig';
 	$password = 'wireless';
