@@ -34,8 +34,6 @@ ini_set( "display_errors", 1 );
 		);
 	$stmt->execute();
 	$results = $stmt->fetchAll();
-
-	print_r($results);
 	?>
 
 	<?php foreach ($results as $result) { ?>
