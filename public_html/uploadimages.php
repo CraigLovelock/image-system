@@ -22,7 +22,9 @@
 <body>
 
 	<div class="upload-images">
-		<form action="/php/file-upload.php" class="dropzone" id="my-awesome-dropzone"></form>
+		<form action="/php/file-upload.php" class="dropzone" id="my-awesome-dropzone">
+
+        </form>
 	</div>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

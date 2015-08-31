@@ -2,6 +2,10 @@ $("document").ready(function(){
 
     FastClick.attach(document.body);
 
+    if (!$(".main-image").attr("src")) {
+        loadImageAjax();
+    }
+
     // on page refesh button click, perform ajax call
     jQuery(document.body).on('click touchstart', '.page-refresh, .load-new-image', function(e){
         e.preventDefault();
@@ -19,6 +23,13 @@ $("document").ready(function(){
         e.preventDefault();
         showOverlay();
         $(".share-modal").fadeIn();
+    });
+
+    // close the share modal
+    jQuery(document.body).on('click touchstart', '.close-modal', function(e){
+        e.preventDefault();
+        hideOverlay();
+        $(".share-modal").fadeOut();
     });
 
     $('body').keyup(function(e){
@@ -53,7 +64,7 @@ $("document").ready(function(){
                 $('.main-image').attr("src", "/assets/images/cars/"+data.image_name+".jpg");
                 $('.main-image').attr("data-imageid", data.rowId);
                 $('.direct-link').attr('value', "http://www.doseofstance.com/image/"+data.rowId);
-                $('.facebook').attr('href', "https://twitter.com/intent/tweet?url=URL&");
+                $('.facebook').attr('href', "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdoseofstance.com/image/"+data.rowId);
             }
         });
     };
@@ -88,7 +99,7 @@ $("document").ready(function(){
         if (status === 'enable') {
             $(".vote-up i").removeClass("fa-check")
             .addClass("fa-arrow-up");
-            $(".vote-up").removeClass("vote-up-disabled").addClass("vote-up-enabled");
+            $(".vote-up").removeClass("vote-up-disabled").removeClass("vote-up-error").addClass("vote-up-enabled");
             $(".upvote-text").html('UPVOTE');
         } else if (status === 'error') {
             $(".vote-up i").removeClass("fa-arrow-up")
@@ -96,7 +107,7 @@ $("document").ready(function(){
             $(".vote-up").removeClass("vote-up-enabled").addClass("vote-up-error");
             $(".upvote-text").html('ERROR');
         } else if (status === 'disable') {
-            $(".vote-up i").removeClass("fa-arrow-up")
+            $(".vote-up i").removeClass("fa-arrow-up").removeClass("fa-ban")
             .addClass("fa-check");
             $(".vote-up").removeClass("vote-up-enabled").addClass("vote-up-disabled");
             $(".upvote-text").html('VOTED');
@@ -119,6 +130,11 @@ $("document").ready(function(){
     function showOverlay()
     {
         $(".overlay").fadeIn();
+    }
+
+    function hideOverlay()
+    {
+        $(".overlay").fadeOut();
     }
 
 });

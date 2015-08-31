@@ -5,6 +5,12 @@ require 'conn.php';
 $ds = DIRECTORY_SEPARATOR;
 $storeFolder = 'images/cars';
 
+if ( isset($_POST['passkey']) && $_POST['passkey'] == 'temppassword' ) {
+    return true;
+} else {
+    exit("permission denied");
+}
+
 if (!empty($_FILES)) {
 	// define name
     $image_name = $_FILES['file']['size'] . '-' . time();

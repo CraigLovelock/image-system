@@ -1,8 +1,4 @@
 <!doctype html>
-<?php
-    error_reporting( E_ALL );
-    ini_set( "display_errors", 1 );
-?>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
@@ -10,13 +6,13 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Dose Of Stance</title>
-    <meta name="description" content="">
+    <title>Dose Of Stance | Your Daily Of Stance</title>
+    <meta name="description" content="Your Daily Dose Of Stance. The source for the best stance images for inspiration and voting.">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 </head>
 <body>
 
@@ -27,7 +23,7 @@
     <?php include ('includes/_header.php'); ?>
 
     <div class="image-holder">
-        <img class="main-image" src="/assets/images/cars/<?= $return['image_name']; ?>.jpg" alt="" data-imageid="<?= $return['image_id']; ?>">
+        <img class="main-image" src="" alt="" data-imageid="">
     </div>
 
     <footer>
@@ -48,18 +44,7 @@
         </div>
     </footer>
 
-    <div class="share-modal">
-        <h3>SHARE THIS IMAGE</h3>
-
-        <div class="share-links">
-            <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdoseofstance.com/image/<?= $return['image_id'] ?>" target="_blank">
-                Share On Facebook
-            </a>
-
-            Direct Link:
-            <input class="direct-link" type="text" value="http://www.doseofstance.com/image/<?= $return['image_id'] ?>">
-        </div>
-    </div>
+    <?php include ('includes/_sharemodal.php'); ?>
 
     <div class="warning">
         <span>
@@ -71,6 +56,5 @@
     <div class="overlay"></div>
 
     <?php include ("includes/_scripts.php") ?>
-
 </body>
 </html>

@@ -45,6 +45,8 @@ footer {
 }
 
 .vote-up-enabled, .share {
+    color: white;
+    border-color: white;
     &:hover {
         opacity: 1;
         cursor: pointer;
