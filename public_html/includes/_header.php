@@ -1,6 +1,8 @@
 <header>
     <div class="header-container">
-        <a href="/" class="brand-section">Dose Of Stance</a>
+        <a href="/" class="brand-section">
+            <span>DoseOfStance</span>
+        </a>
         <input type="checkbox" id="menu_collapse_icon" class="menu_collapse_icon">
         <label for="menu_collapse_icon" class="menu_collapse_icon_label">
         Menu

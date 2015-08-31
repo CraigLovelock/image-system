@@ -58,13 +58,14 @@ $("document").ready(function(){
                 } else {
                     modifyUpvote('enable');
                 }
-                // done, remove spinner
-                $('.load-new-image i').removeClass('fa-spin');
                 // change the image attributes
                 $('.main-image').attr("src", "/assets/images/cars/"+data.image_name+".jpg");
                 $('.main-image').attr("data-imageid", data.rowId);
                 $('.direct-link').attr('value', "http://www.doseofstance.com/image/"+data.rowId);
                 $('.facebook').attr('href', "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdoseofstance.com/image/"+data.rowId);
+                setTimeout(function(){
+                    $('.load-new-image i').removeClass('fa-spin');
+                }, 1000);
             }
         });
     };
