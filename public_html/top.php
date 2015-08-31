@@ -34,6 +34,8 @@ ini_set( "display_errors", 1 );
 		);
 	$stmt->execute();
 	$results = $stmt->fetchAll();
+
+	print_r($results);
 	?>
 
 	<?php foreach ($results as $result) { ?>
@@ -41,7 +43,7 @@ ini_set( "display_errors", 1 );
 		<img src="/assets/images/cars/<?= $result['image_name'] ?>.jpg"/>
 		<div class="single-car-overlay">
 		</div>
-		<a href="/image/<?= $result['id'] ?>" class="ghost-button">
+		<a href="/image/<?= $result[0] ?>" class="ghost-button">
 			View Image
 		</a>
 	</div>
