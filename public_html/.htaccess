@@ -355,7 +355,7 @@ AddDefaultCharset utf-8
 
 </IfModule>
 
-RewriteRule ^image/([^/]*)$ /?image=$1 [L]
+RewriteRule ^find/([^/]*)$ /find?image=$1 [L]
 
 # ----------------------------------------------------------------------
 # | Forcing `https://`                                                 |

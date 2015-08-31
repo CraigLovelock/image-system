@@ -23,7 +23,7 @@ if( isset( $_SERVER['HTTP_X_REQUESTED_WITH'] ) && ( $_SERVER['HTTP_X_REQUESTED_W
 			$rowArray[] = $r['id'];
 		}
 	} catch(PDOException $e) {
-		echo 'ERROR: ' . $e->getMessage();
+		echo '<META HTTP-EQUIV="Refresh" Content="0; URL=/404.php">';
 	}
 
 	try {
@@ -48,7 +48,7 @@ if( isset( $_SERVER['HTTP_X_REQUESTED_WITH'] ) && ( $_SERVER['HTTP_X_REQUESTED_W
 		echo json_encode($return);
 
 	} catch(PDOException $e) {
-		echo 'ERROR: ' . $e->getMessage();
+		echo '<META HTTP-EQUIV="Refresh" Content="0; URL=/404.php">';
 		exit();
 	}
 

@@ -2,6 +2,10 @@
 require ('conn.php');
 
 $singleImage = False;
+$image_link = "";
+$imageId = "";
+$vote_class = "enabled";
+$vote_text = "UPVOTE";
 
 try {
 
@@ -14,23 +18,26 @@ try {
 
 		if (!$result) {
 			redirect();
+		} else {
+			// check if the user has already voted on image
+			if ( isset($_COOKIE['voted_on']) ) {
+				$votedArray = explode(',', $_COOKIE['voted_on']);
+				if (in_array($result['id'], $votedArray)) {
+					$vote_class = "disabled";
+					$vote_text = "VOTED";
+				}
+			}
+
+			$singleImage = true;
+
+			$image_link = "/assets/images/cars/".$result['image_name'].".jpg";
+			$imageId = $result['id'];
 		}
 
-		$singleImage = true;
-
-	} else {
-		$stmt = $conn->prepare('SELECT * FROM images ORDER BY rand() LIMIT 1');
-		$stmt->execute();
-		$result = $stmt->fetch();
 	}
 
-	$return = [
-		'image_name' => $result['image_name'],
-		'image_id'   => $result['id'],
-	];
-
 } catch(PDOException $e) {
-	echo 'ERROR: ' . $e->getMessage();
+	echo '<META HTTP-EQUIV="Refresh" Content="0; URL=/404.php">';
 }
 
 function validateId($id)
@@ -42,7 +49,7 @@ function validateId($id)
 
 function redirect()
 {
-	echo '<META HTTP-EQUIV="Refresh" Content="0; URL=/top">';
+	echo '<META HTTP-EQUIV="Refresh" Content="0; URL=/">';
 	exit();
 }
 

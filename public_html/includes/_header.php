@@ -15,10 +15,10 @@
         <nav class="main-nav">
             <ul>
                 <a href="/" class="<?php echo ($_SERVER['REQUEST_URI'] ==="/" ? 'active' : '') ?>">
-                	<li>Home</li>
+                	<li>Home / Top Voted</li>
                 </a>
-                <a href="/top" class="<?php echo ($_SERVER['REQUEST_URI'] ==="/top" ? 'active' : '') ?>">
-                	<li>Top Voted</li>
+                <a href="/find" class="<?php echo ($_SERVER['REQUEST_URI'] ==="/find" ? 'active' : '') ?>">
+                	<li>Find</li>
                 </a>
                 <a href="mailto:hello@doseofstance.com" class="<?php echo ($_SERVER['REQUEST_URI'] ==="/submit" ? 'active' : '') ?>">
                 	<li>Submit Image</li>

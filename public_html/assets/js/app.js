@@ -1,13 +1,13 @@
 $("document").ready(function(){
 
     FastClick.attach(document.body);
-
-    if (!$(".main-image").attr("src")) {
+    var url = window.location.href;
+    if ( !$(".main-image").attr("src") && url.indexOf("find") > 0 ) {
         loadImageAjax();
     }
 
     // on page refesh button click, perform ajax call
-    jQuery(document.body).on('click touchstart', '.page-refresh, .load-new-image', function(e){
+    jQuery(document.body).on('click touchstart', '.load-new-image', function(e){
         e.preventDefault();
         loadImageAjax();
     });
@@ -50,7 +50,7 @@ $("document").ready(function(){
             },
             success:function(data){
                 if (data.error && data.error === 100) {
-                    window.location.replace("http://doseofstance.com/top");
+                    window.location.replace("http://doseofstance.com/");
                 }
 
                 if (data.already_voted) {
@@ -58,6 +58,7 @@ $("document").ready(function(){
                 } else {
                     modifyUpvote('enable');
                 }
+                console.log(data);
                 // change the image attributes
                 $('.main-image').attr("src", "/assets/images/cars/"+data.image_name+".jpg");
                 $('.main-image').attr("data-imageid", data.rowId);
@@ -65,7 +66,7 @@ $("document").ready(function(){
                 $('.facebook').attr('href', "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdoseofstance.com/image/"+data.rowId);
                 setTimeout(function(){
                     $('.load-new-image i').removeClass('fa-spin');
-                }, 1000);
+                }, 500);
             }
         });
     };

@@ -59,7 +59,7 @@ try {
 	*/
 
 } catch(PDOException $e) {
-	echo 'ERROR: ' . $e->getMessage();
+	echo '<META HTTP-EQUIV="Refresh" Content="0; URL=/404.php">';
 }
 
 echo json_encode($return);
