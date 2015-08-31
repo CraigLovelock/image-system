@@ -32,10 +32,8 @@
             </div>
 
             <div class="load-new-image">
-                        <?php if (!$singleImage) { ?>
                 <i class="fa fa-refresh"></i>
                 <span>CHANGE IMAGE</span>
-                <?php } ?>
             </div>
             <div class="share">
                 <i class="fa fa-share-alt"></i>

@@ -7,7 +7,7 @@
         </a>
 
         Direct Link:
-        <input class="direct-link" type="text" value="http://www.doseofstance.com/image/<?= $return['image_id'] ?>">
+        <input class="direct-link" type="text" value="http://www.doseofstance.com/image/<?= $imageId ?>">
     </div>
 
     <a class="close-modal" href="#">
