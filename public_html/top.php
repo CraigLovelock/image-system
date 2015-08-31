@@ -25,9 +25,12 @@ ini_set( "display_errors", 1 );
 	<?php
 	require 'php/conn.php';
 	$stmt = $conn->prepare(
-		'SELECT *
-		FROM images
-		LIMIT 10'
+		'SELECT *, COUNT(v.image_id)
+		FROM images AS i
+		LEFT JOIN votes AS v ON i.id=v.image_id
+		GROUP BY i.id
+		ORDER BY v.image_id desc
+		LIMIT 15'
 		);
 	$stmt->execute();
 	$results = $stmt->fetchAll();
